@@ -29,21 +29,30 @@
             /* Add smooth transition */
         }
 
-        #about {
-            position: relative; /* Make sure the about section is a positioning context */
-            padding-top: 8rem; /* Add padding to the top to account for fixed headers and video */
-            padding-bottom: 6rem;
-            border-radius: 0.5rem;
-            overflow: hidden; /* Clip the video overflow */
-        }
-
         #about h2,
         #about p,
         #about strong,
         #about a {
-            color: white;
-            z-index: 10; /* Bring text content to the front */
-            position: relative;
+            color: white; /* Ensure all text elements are white */
+        }
+
+        /* Optional: Add an overlay for better text readability */
+        #about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust overlay color and opacity */
+            border-radius: 0.5rem;
+            z-index: -1; /* Place overlay behind content */
+        }
+
+        #about .flex-col,
+        #about .md\:flex-row {
+            position: relative; /* Needed for absolute positioning of overlay */
+            z-index: 1; /* Ensure content is above the overlay */
         }
 
         /* Video Styles */
